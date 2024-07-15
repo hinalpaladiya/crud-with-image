@@ -1,24 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+import Insert from './Insert';
+import DataView from './DataView';
+import { Col, Row } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
+
 
 function App() {
+    const [uid, setuid] = useState('')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <>
+            <Row>
+                <Col>
+                    <Insert updateMovieId={uid} />
+                </Col>
+                <Col>
+                    <DataView updateId={(id)=>setuid(id)}/>
+                </Col>
+            </Row>
+        </>
   );
 }
 
